@@ -1,0 +1,58 @@
+//
+//  ViewController.swift
+//  spamMe
+//
+//  Created by Gunnar Horve on 6/28/16.
+//  Copyright © 2016 Latent Non-Ability. All rights reserved.
+//
+
+import UIKit
+import FirebaseStorage
+import FirebaseDatabase
+
+class ViewController: JSQMessagesViewController {
+    var ref: FIRDatabase!
+    var imagesRef: FIRStorageReference!
+    @IBOutlet weak var inputTextView: UITextView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        ref = FIRDatabase.database()
+        imagesRef = FIRStorage.storage().referenceForURL("gs://spamme-82aff.appspot.com/images/")
+        
+        //keyboard setup
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    //sroll up screen when keyboard appears
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y -= keyboardSize.height
+        }
+    }
+    
+    //scroll back keyboard when keyboard disappears
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y += keyboardSize.height
+        }
+    }
+
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+
+
+
+
