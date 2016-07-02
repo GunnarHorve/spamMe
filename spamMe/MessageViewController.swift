@@ -21,6 +21,7 @@ class MessageViewController: JSQMessagesViewController {
     var messages = [JSQMessage]()
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
+    var chatId: String?
     
     var userIsTypingRef: FIRDatabaseReference!
     private var localTyping = false
@@ -117,12 +118,12 @@ class MessageViewController: JSQMessagesViewController {
 
         
         
-        let key = ref.child("comments/chat1Id").childByAutoId().key
+        let key = ref.child("comments/\(chatId!)").childByAutoId().key
         let post = ["senderId": self.senderId,
                     "body": text,
                     "time": NSDate().timeIntervalSince1970]
-        let childUpdates = ["/comments/chat1Id/\(key)": post,
-                            "/chats/chat1Id/lastMSG": key]
+        let childUpdates = ["/comments/\(chatId!)/\(key)": post,
+                            "/chats/\(chatId!)/lastMSG": key]
         
         ref.updateChildValues(childUpdates)
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
@@ -132,7 +133,7 @@ class MessageViewController: JSQMessagesViewController {
     
     // display message work
     private func observeMessages() {
-         self.ref.child("comments/chat1Id").queryLimitedToLast(25).observeEventType(.ChildAdded, withBlock: { (snapshot) -> Void in
+         self.ref.child("comments/\(chatId!)").queryLimitedToLast(25).observeEventType(.ChildAdded, withBlock: { (snapshot) -> Void in
             let id = snapshot.value!["senderId"] as! String
             let text = snapshot.value!["body"] as! String
             self.addMessage(id, text: text)
@@ -142,7 +143,7 @@ class MessageViewController: JSQMessagesViewController {
     
     // check if anyone is typing work
     private func observeTyping() {
-        let typingIndicatorRef = ref.child("chats/chat1Id/typingIndicator")
+        let typingIndicatorRef = ref.child("chats/\(chatId!)/typingIndicator")
         userIsTypingRef = typingIndicatorRef.child(senderId)
         userIsTypingRef.onDisconnectRemoveValue()
         usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqualToValue(true)
