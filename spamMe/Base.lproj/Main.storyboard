@@ -1,14 +1,112 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QWC-En-CeE">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Chat View Controller-->
+        <scene sceneID="ql3-fA-fQp">
+            <objects>
+                <tableViewController id="QWC-En-CeE" customClass="ChatViewController" customModule="spamMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="AsT-Bc-aEM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatTableViewCell" rowHeight="60" id="0uR-IB-H8b" customClass="chatTableViewCell" customModule="spamMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0uR-IB-H8b" id="JZ2-3P-Xr7">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n9C-7t-Zl3" userLabel="Full Cell Stack">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="61"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="otv-TD-PmO" userLabel="Chat Icon">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="61"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="AGt-Og-I3w"/>
+                                                        <constraint firstAttribute="width" constant="60" id="sWS-gu-sWh"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mRt-hw-ZeA" userLabel="Text Preview Stack">
+                                                    <rect key="frame" x="60" y="0.0" width="540" height="61"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZwZ-V1-3lC" userLabel="Name &amp; Date Stack">
+                                                            <rect key="frame" x="0.0" y="0.0" width="540" height="21"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoA-vJ-TJ0" userLabel="TitleDisplayLabel">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="473" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Last Edit" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwL-y1-2DC" userLabel="TimeDisplayLabel">
+                                                                    <rect key="frame" x="473" y="0.0" width="67" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="VoA-vJ-TJ0" secondAttribute="bottom" id="Guh-5r-Gxs"/>
+                                                                <constraint firstAttribute="bottom" secondItem="jwL-y1-2DC" secondAttribute="bottom" id="avw-u5-8io"/>
+                                                                <constraint firstItem="VoA-vJ-TJ0" firstAttribute="top" secondItem="ZwZ-V1-3lC" secondAttribute="top" id="cMx-Dr-dCp"/>
+                                                                <constraint firstItem="jwL-y1-2DC" firstAttribute="top" secondItem="ZwZ-V1-3lC" secondAttribute="top" id="l7D-h9-X4r"/>
+                                                                <constraint firstItem="VoA-vJ-TJ0" firstAttribute="leading" secondItem="ZwZ-V1-3lC" secondAttribute="leading" id="s5h-h5-J6E"/>
+                                                                <constraint firstAttribute="trailing" secondItem="jwL-y1-2DC" secondAttribute="trailing" id="vdu-Vr-IDe"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJS-yq-Oht" userLabel="MessagePreviewLabel">
+                                                            <rect key="frame" x="0.0" y="21" width="540" height="40"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="otv-TD-PmO" firstAttribute="top" secondItem="n9C-7t-Zl3" secondAttribute="top" id="JgF-Xz-PVg"/>
+                                                <constraint firstAttribute="trailing" secondItem="mRt-hw-ZeA" secondAttribute="trailing" id="KBg-6I-vGh"/>
+                                                <constraint firstAttribute="bottom" secondItem="otv-TD-PmO" secondAttribute="bottom" id="MPL-aV-OvU"/>
+                                                <constraint firstAttribute="bottom" secondItem="mRt-hw-ZeA" secondAttribute="bottom" id="RS8-d9-fGd"/>
+                                                <constraint firstItem="otv-TD-PmO" firstAttribute="leading" secondItem="n9C-7t-Zl3" secondAttribute="leading" id="bpi-bC-V7d"/>
+                                                <constraint firstItem="mRt-hw-ZeA" firstAttribute="top" secondItem="n9C-7t-Zl3" secondAttribute="top" id="cy7-aS-7Bh"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="n9C-7t-Zl3" firstAttribute="leading" secondItem="JZ2-3P-Xr7" secondAttribute="leading" id="Bvc-Ng-dyw"/>
+                                        <constraint firstAttribute="trailing" secondItem="n9C-7t-Zl3" secondAttribute="trailing" id="Zzz-DX-KC1"/>
+                                        <constraint firstItem="n9C-7t-Zl3" firstAttribute="top" secondItem="JZ2-3P-Xr7" secondAttribute="top" id="eHK-JX-gLe"/>
+                                        <constraint firstAttribute="bottom" secondItem="n9C-7t-Zl3" secondAttribute="bottom" id="i4a-CX-jQg"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="chatIcon" destination="otv-TD-PmO" id="kSF-hG-RYa"/>
+                                    <outlet property="previewDisplay" destination="lJS-yq-Oht" id="2Jh-0T-f3G"/>
+                                    <outlet property="timeDisplay" destination="jwL-y1-2DC" id="0RL-fF-aNo"/>
+                                    <outlet property="titleDisplay" destination="VoA-vJ-TJ0" id="6vV-TM-Rw7"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QWC-En-CeE" id="egv-19-jle"/>
+                            <outlet property="delegate" destination="QWC-En-CeE" id="CIQ-NW-ofG"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oGy-x3-0oN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-469" y="282"/>
+        </scene>
+        <!--messageViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="spamMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="messageViewController" customClass="MessageViewController" customModule="spamMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

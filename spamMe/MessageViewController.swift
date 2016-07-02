@@ -12,8 +12,7 @@ import JSQMessagesViewController
 import FirebaseStorage
 import FirebaseDatabase
 
-class ViewController: JSQMessagesViewController {
-//class ViewController: UIViewController {
+class MessageViewController: JSQMessagesViewController {
 
     var ref: FIRDatabaseReference!
     var imagesRef: FIRStorageReference!
@@ -122,14 +121,10 @@ class ViewController: JSQMessagesViewController {
         let post = ["senderId": self.senderId,
                     "body": text,
                     "time": NSDate().timeIntervalSince1970]
-
         let childUpdates = ["/comments/chat1Id/\(key)": post,
                             "/chats/chat1Id/lastMSG": key]
+        
         ref.updateChildValues(childUpdates)
-        
-        
-
-//        ref.child("comments/chat1Id").childByAutoId().setValue(post)
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         finishSendingMessage()
         isTyping = false
