@@ -55,7 +55,7 @@ class ChatViewController: UITableViewController {
                 //              let image = snapshot2.value!["imageURL"] as ! Image
                 //              let senderId = snapshot2.value!["senderId"] as! String
                 let time = snapshot2.value!["time"] as! Double
-                self.chats.append(Chat(title: title, time: self.formatTime(time), preview: body))
+                self.chats.append(Chat(title: title, time: self.formatTime(time), preview: body, chatId: chatId))
             })
         })
     }
@@ -97,8 +97,9 @@ class ChatViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
             if identifier == "displayChat" {
+                let indexPath = tableView.indexPathForSelectedRow!
                 let controller = segue.destinationViewController as! MessageViewController
-                controller.chatId = "chat2Id"
+                controller.chatId = chats[indexPath.row].chatId!
             }
         }
     }

@@ -3,10 +3,12 @@ class Chat {
     var title: String?
     var time: String?
     var preview: String?
+    var chatId: String?
     
-    init(title: String, time: String, preview: String) {
+    init(title: String, time: String, preview: String, chatId: String) {
         self.title = title
         self.time = time
         self.preview = preview
+        self.chatId = chatId
     }
 }
