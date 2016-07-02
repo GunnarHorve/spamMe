@@ -16,38 +16,46 @@ class ChatViewController: UITableViewController {
     var ref: FIRDatabaseReference!
     var imagesRef: FIRStorageReference!
     
-    @IBOutlet weak var titleDisplayLabel: UILabel!
-    @IBOutlet weak var timeDisplayLabel: UILabel!
-    @IBOutlet weak var messagePreviewLabel: UILabel!
-    @IBOutlet weak var chatIconImage: UIImageView!
-    
-    
+    var chats = [Chat]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = FIRDatabase.database().reference()
         imagesRef = FIRStorage.storage().referenceForURL("gs://spamme-82aff.appspot.com/images/")
+        watchChatsData()
         
-//        self.ref.child("users/gunnarId/chats").observeSingleEventOfType(.Value, withBlock: { snapshot in
-//            let enumerator = snapshot.children
-//            while let rest = enumerator.nextObject() as? FIRDataSnapshot {
-//                print(rest.value!)
-//            }
-//        })
+        //        self.ref.child("users/gunnarId/chats").observeSingleEventOfType(.Value, withBlock: { snapshot in
+        //            let enumerator = snapshot.children
+        //            while let rest = enumerator.nextObject() as? FIRDataSnapshot {
+        //                print(rest.value!)
+        //            }
+        //        })
+
+    }
+    
+    func watchChatsData() {
+        self.ref.child("users/gunnarId/chats").observeSingleEventOfType(.Value, withBlock: { snapshot in
+            let enumerator = snapshot.children
+            while let rest = enumerator.nextObject() as? FIRDataSnapshot {
+                print(rest.value!)
+            }
+        })
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return chats.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("chatTableViewCell", forIndexPath: indexPath) as! chatTableViewCell
+        let row = indexPath.row
+        let chat = chats[row]
         
-        cell.titleDisplay.text = "Chat 1"
-        cell.timeDisplay.text = "1:00"
-        cell.previewDisplay.text = "Top kek"
         //cell.chatIcon.image = ??
+        cell.titleDisplay.text = chat.title
+        cell.timeDisplay.text = chat.time
+        cell.previewDisplay.text = chat.preview
         
         return cell
     }

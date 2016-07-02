@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QWC-En-CeE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ewn-At-nsB">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Chat View Controller-->
+        <!--Chats-->
         <scene sceneID="ql3-fA-fQp">
             <objects>
                 <tableViewController id="QWC-En-CeE" customClass="ChatViewController" customModule="spamMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,7 +15,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatTableViewCell" rowHeight="60" id="0uR-IB-H8b" customClass="chatTableViewCell" customModule="spamMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0uR-IB-H8b" id="JZ2-3P-Xr7">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
@@ -90,6 +90,7 @@
                                     <outlet property="previewDisplay" destination="lJS-yq-Oht" id="2Jh-0T-f3G"/>
                                     <outlet property="timeDisplay" destination="jwL-y1-2DC" id="0RL-fF-aNo"/>
                                     <outlet property="titleDisplay" destination="VoA-vJ-TJ0" id="6vV-TM-Rw7"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="displayChat" id="hY6-3l-XjK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -98,10 +99,13 @@
                             <outlet property="delegate" destination="QWC-En-CeE" id="CIQ-NW-ofG"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Chats" id="zU7-E8-6bh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ngu-TK-WPO"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGy-x3-0oN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-469" y="282"/>
+            <point key="canvasLocation" x="343" y="282"/>
         </scene>
         <!--messageViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -116,10 +120,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="hOX-bK-3de">
+                        <barButtonItem key="rightBarButtonItem" title="info" id="tjF-65-Y2f"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="275"/>
+            <point key="canvasLocation" x="1117" y="275"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4HU-aY-gwk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ewn-At-nsB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zpo-PI-LCG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QWC-En-CeE" kind="relationship" relationship="rootViewController" id="i1r-CD-srE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PgX-2n-QgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-469" y="282"/>
         </scene>
     </scenes>
 </document>
