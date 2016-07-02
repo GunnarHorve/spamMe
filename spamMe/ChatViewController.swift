@@ -28,14 +28,6 @@ class ChatViewController: UITableViewController {
         ref = FIRDatabase.database().reference()
         imagesRef = FIRStorage.storage().referenceForURL("gs://spamme-82aff.appspot.com/images/")
         watchChatsData()
-        
-        //        self.ref.child("users/gunnarId/chats").observeSingleEventOfType(.Value, withBlock: { snapshot in
-        //            let enumerator = snapshot.children
-        //            while let rest = enumerator.nextObject() as? FIRDataSnapshot {
-        //                print(rest.value!)
-        //            }
-        //        })
-        
     }
     
     func watchChatsData() {
