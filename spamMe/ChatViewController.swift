@@ -52,7 +52,6 @@ class ChatViewController: UITableViewController {
                     let timeField = senderDisplayName + " @ " + time
                     self.chats.append(Chat(title: title, time: timeField, preview: body, chatId: chatId))
                 })
-
             })
         })
     }
@@ -80,6 +79,7 @@ class ChatViewController: UITableViewController {
                 let indexPath = tableView.indexPathForSelectedRow!
                 let controller = segue.destinationViewController as! MessageViewController
                 controller.chatId = chats[indexPath.row].chatId!
+                controller.titleBar.title = chats[indexPath.row].title
             }
         }
     }

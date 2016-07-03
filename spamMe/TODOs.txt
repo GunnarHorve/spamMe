@@ -5,14 +5,17 @@ TODOS:
 [X] Create UI to have multiple lobby support
 [X] Actually connect multiple lobby UI to firebase
 [X] Chat name display
-[ ] Allow for chat creation
 [X] Display name in chat bubbles & chat preview
-[ ] Number of members display
-[ ] Profile picture display
+
 [ ] User signup/creation
+[ ] Allow for chat creation
+
 [ ] Profile picture add mechanic
 [ ] User account info adjustment mechanic
+
 [ ] Sending photo mechanic
+
 [ ] Secure database -- remove public read/write permissions
+
 [ ] Add app icon
 [ ] Submit to app store

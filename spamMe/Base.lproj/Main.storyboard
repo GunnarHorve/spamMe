@@ -123,6 +123,9 @@
                     <navigationItem key="navigationItem" title="Title" id="hOX-bK-3de">
                         <barButtonItem key="rightBarButtonItem" title="info" id="tjF-65-Y2f"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="titleBar" destination="hOX-bK-3de" id="2aM-ee-RKZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

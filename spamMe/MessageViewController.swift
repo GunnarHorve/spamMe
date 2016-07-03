@@ -13,6 +13,7 @@ import FirebaseStorage
 import FirebaseDatabase
 
 class MessageViewController: JSQMessagesViewController {
+    @IBOutlet weak var titleBar: UINavigationItem!
     
     var ref: FIRDatabaseReference!
     var imagesRef: FIRStorageReference!
@@ -26,9 +27,7 @@ class MessageViewController: JSQMessagesViewController {
     var userIsTypingRef: FIRDatabaseReference!
     private var localTyping = false
     var isTyping: Bool {
-        get {
-            return localTyping
-        }
+        get { return localTyping }
         set {
             localTyping = newValue
             userIsTypingRef.setValue(newValue)
