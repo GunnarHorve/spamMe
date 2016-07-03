@@ -13,7 +13,7 @@ import FirebaseStorage
 import FirebaseDatabase
 
 class MessageViewController: JSQMessagesViewController {
-
+    
     var ref: FIRDatabaseReference!
     var imagesRef: FIRStorageReference!
     
@@ -38,10 +38,10 @@ class MessageViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // MARK: chat initialization
         self.senderId = "gunnarId"
-        self.senderDisplayName = "get some"
+        self.senderDisplayName = "Gunnar"
         setupBubbles()
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
@@ -54,8 +54,8 @@ class MessageViewController: JSQMessagesViewController {
     }
     
     override func didReceiveMemoryWarning() { super.didReceiveMemoryWarning() }
-
-
+    
+    
     // message delegate methods
     override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
@@ -91,9 +91,9 @@ class MessageViewController: JSQMessagesViewController {
     }
     
     // send message work
-    func addMessage(id: String, text: String) {
-        let message = JSQMessage(senderId: id, displayName: "", text: text)
-        messages.append(message)
+    func addMessage(id: String, text: String, time: Double, senderDisplayName: String) {
+        let message = JSQMessage(senderId: id, senderDisplayName: senderDisplayName, date: NSDate(timeIntervalSince1970: time), text: text)
+        self.messages.append(message)
     }
     
     override func collectionView(collectionView: UICollectionView,
@@ -105,19 +105,18 @@ class MessageViewController: JSQMessagesViewController {
         
         if message.senderId == senderId {
             cell.textView!.textColor = UIColor.whiteColor()
+            cell.messageBubbleTopLabel.text = formatTime(message.date.timeIntervalSince1970)
         } else {
             cell.textView!.textColor = UIColor.blackColor()
+            cell.messageBubbleTopLabel.text = message.senderDisplayName + " @ " + formatTime(message.date.timeIntervalSince1970)
         }
-        
         return cell
     }
     
+    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat { return 15 }
+    
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,
                                      senderDisplayName: String!, date: NSDate!) {
-        
-
-        
-        
         let key = ref.child("comments/\(chatId!)").childByAutoId().key
         let post = ["senderId": self.senderId,
                     "body": text,
@@ -133,11 +132,16 @@ class MessageViewController: JSQMessagesViewController {
     
     // display message work
     private func observeMessages() {
-         self.ref.child("comments/\(chatId!)").queryLimitedToLast(25).observeEventType(.ChildAdded, withBlock: { (snapshot) -> Void in
+        self.ref.child("comments/\(chatId!)").queryLimitedToLast(25).observeEventType(.ChildAdded, withBlock: { (snapshot) -> Void in
             let id = snapshot.value!["senderId"] as! String
             let text = snapshot.value!["body"] as! String
-            self.addMessage(id, text: text)
-            self.finishReceivingMessage()
+            let time = snapshot.value!["time"] as! Double
+            self.ref.child("users/\(id)/name").observeEventType(.Value, withBlock: { (snapshot) -> Void in
+                let senderDisplayName = snapshot.value as! String
+                
+                self.addMessage(id, text: text, time: time, senderDisplayName: senderDisplayName)
+                self.finishReceivingMessage()
+            })
         })
     }
     

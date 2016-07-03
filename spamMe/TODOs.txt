@@ -4,9 +4,9 @@ TODOS:
 [X] Be able to pull data from firebase to app
 [X] Create UI to have multiple lobby support
 [X] Actually connect multiple lobby UI to firebase
-[ ] Chat name display
+[X] Chat name display
 [ ] Allow for chat creation
-[ ] Display name in chat bubbles & chat preview
+[X] Display name in chat bubbles & chat preview
 [ ] Number of members display
 [ ] Profile picture display
 [ ] User signup/creation

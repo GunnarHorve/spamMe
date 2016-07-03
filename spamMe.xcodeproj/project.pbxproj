@@ -11,6 +11,7 @@
 		0601DFB81D282D0100BC22A5 /* chatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0601DFB71D282D0100BC22A5 /* chatTableViewCell.swift */; };
 		0601DFBA1D2840E200BC22A5 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0601DFB91D2840E200BC22A5 /* Chat.swift */; };
 		063EC9911D285F0200179165 /* TODOs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 063EC9901D285F0200179165 /* TODOs.txt */; };
+		067493951D296959006E1985 /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067493941D296959006E1985 /* helpers.swift */; };
 		06F8F0FA1D247F6D0083482A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F8F0F91D247F6D0083482A /* AppDelegate.swift */; };
 		06F8F0FC1D247F6D0083482A /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F8F0FB1D247F6D0083482A /* MessageViewController.swift */; };
 		06F8F0FF1D247F6D0083482A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F8F0FD1D247F6D0083482A /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		0601DFB71D282D0100BC22A5 /* chatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatTableViewCell.swift; sourceTree = "<group>"; };
 		0601DFB91D2840E200BC22A5 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		063EC9901D285F0200179165 /* TODOs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODOs.txt; sourceTree = "<group>"; };
+		067493941D296959006E1985 /* helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
 		06F8F0F61D247F6D0083482A /* spamMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spamMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F8F0F91D247F6D0083482A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06F8F0FB1D247F6D0083482A /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				0601DFB71D282D0100BC22A5 /* chatTableViewCell.swift */,
 				0601DFB91D2840E200BC22A5 /* Chat.swift */,
 				063EC9901D285F0200179165 /* TODOs.txt */,
+				067493941D296959006E1985 /* helpers.swift */,
 			);
 			path = spamMe;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				0601DFBA1D2840E200BC22A5 /* Chat.swift in Sources */,
 				0601DFB61D282B7700BC22A5 /* ChatViewController.swift in Sources */,
 				06F8F0FA1D247F6D0083482A /* AppDelegate.swift in Sources */,
+				067493951D296959006E1985 /* helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
