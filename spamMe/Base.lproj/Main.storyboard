@@ -21,32 +21,32 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n9C-7t-Zl3" userLabel="Full Cell Stack">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="61"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="n9C-7t-Zl3" userLabel="Full Cell Stack">
+                                            <rect key="frame" x="0.0" y="2" width="590" height="50"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="otv-TD-PmO" userLabel="Chat Icon">
-                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="61"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="otv-TD-PmO" userLabel="Chat Icon">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="60" id="AGt-Og-I3w"/>
-                                                        <constraint firstAttribute="width" constant="60" id="sWS-gu-sWh"/>
+                                                        <constraint firstAttribute="height" constant="50" id="AGt-Og-I3w"/>
+                                                        <constraint firstAttribute="width" constant="50" id="sWS-gu-sWh"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mRt-hw-ZeA" userLabel="Text Preview Stack">
-                                                    <rect key="frame" x="60" y="0.0" width="540" height="61"/>
+                                                    <rect key="frame" x="55" y="0.0" width="535" height="50"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZwZ-V1-3lC" userLabel="Name &amp; Date Stack">
-                                                            <rect key="frame" x="0.0" y="0.0" width="540" height="21"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="535" height="21"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoA-vJ-TJ0" userLabel="TitleDisplayLabel">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="473" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="468" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Last Edit" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwL-y1-2DC" userLabel="TimeDisplayLabel">
-                                                                    <rect key="frame" x="473" y="0.0" width="67" height="21"/>
+                                                                    <rect key="frame" x="468" y="0.0" width="67" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -60,29 +60,30 @@
                                                             </constraints>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJS-yq-Oht" userLabel="MessagePreviewLabel">
-                                                            <rect key="frame" x="0.0" y="21" width="540" height="40"/>
+                                                            <rect key="frame" x="0.0" y="21" width="535" height="29"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="otv-TD-PmO" firstAttribute="top" secondItem="n9C-7t-Zl3" secondAttribute="top" id="JgF-Xz-PVg"/>
+                                                <constraint firstItem="otv-TD-PmO" firstAttribute="centerY" secondItem="n9C-7t-Zl3" secondAttribute="centerY" id="2er-Rf-F3X"/>
+                                                <constraint firstItem="otv-TD-PmO" firstAttribute="leading" secondItem="n9C-7t-Zl3" secondAttribute="leading" constant="5" id="6KU-Rw-Ble"/>
+                                                <constraint firstItem="otv-TD-PmO" firstAttribute="top" secondItem="n9C-7t-Zl3" secondAttribute="top" constant="5" id="FeX-ed-XXQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="mRt-hw-ZeA" secondAttribute="trailing" id="KBg-6I-vGh"/>
-                                                <constraint firstAttribute="bottom" secondItem="otv-TD-PmO" secondAttribute="bottom" id="MPL-aV-OvU"/>
                                                 <constraint firstAttribute="bottom" secondItem="mRt-hw-ZeA" secondAttribute="bottom" id="RS8-d9-fGd"/>
-                                                <constraint firstItem="otv-TD-PmO" firstAttribute="leading" secondItem="n9C-7t-Zl3" secondAttribute="leading" id="bpi-bC-V7d"/>
                                                 <constraint firstItem="mRt-hw-ZeA" firstAttribute="top" secondItem="n9C-7t-Zl3" secondAttribute="top" id="cy7-aS-7Bh"/>
+                                                <constraint firstAttribute="bottom" secondItem="otv-TD-PmO" secondAttribute="bottom" constant="5" id="xN5-fd-lJU"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="n9C-7t-Zl3" firstAttribute="leading" secondItem="JZ2-3P-Xr7" secondAttribute="leading" id="Bvc-Ng-dyw"/>
-                                        <constraint firstAttribute="trailing" secondItem="n9C-7t-Zl3" secondAttribute="trailing" id="Zzz-DX-KC1"/>
-                                        <constraint firstItem="n9C-7t-Zl3" firstAttribute="top" secondItem="JZ2-3P-Xr7" secondAttribute="top" id="eHK-JX-gLe"/>
-                                        <constraint firstAttribute="bottom" secondItem="n9C-7t-Zl3" secondAttribute="bottom" id="i4a-CX-jQg"/>
+                                        <constraint firstAttribute="trailing" secondItem="n9C-7t-Zl3" secondAttribute="trailing" constant="10" id="Zzz-DX-KC1"/>
+                                        <constraint firstItem="n9C-7t-Zl3" firstAttribute="top" secondItem="JZ2-3P-Xr7" secondAttribute="top" constant="2" id="eHK-JX-gLe"/>
+                                        <constraint firstAttribute="bottom" secondItem="n9C-7t-Zl3" secondAttribute="bottom" constant="2" id="i4a-CX-jQg"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

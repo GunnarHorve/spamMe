@@ -14,7 +14,7 @@ func formatTime(time: Double) -> String {
     
     let calendar = NSCalendar.currentCalendar()
     let comp = calendar.components([.Minute, .Hour, .Day, .Weekday, .Month , .Year], fromDate: date)
-    let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+    let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
     
     if(currentTime - time < 86400) {           // message was sent today
         if(comp.minute < 10) {

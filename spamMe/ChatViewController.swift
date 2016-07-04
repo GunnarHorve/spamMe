@@ -65,7 +65,19 @@ class ChatViewController: UITableViewController {
         let row = indexPath.row
         let chat = chats[row]
         
-        //cell.chatIcon.image = ??
+        //rounded images are a bit code heavy.  =p
+        let image: UIImage = UIImage(named: "chatIcon")!
+        cell.chatIcon.image = image
+        let imageView: UIImageView = cell.chatIcon
+        var layer: CALayer = CALayer()
+        layer = imageView.layer
+        layer.masksToBounds = true
+        layer.cornerRadius = CGFloat(25)
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        var _ = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
         cell.titleDisplay.text = chat.title
         cell.timeDisplay.text = chat.time
         cell.previewDisplay.text = chat.preview
